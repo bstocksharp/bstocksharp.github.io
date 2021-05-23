@@ -1,20 +1,46 @@
 <script>
+function update() {
+		document.getElementById('yourcookies').value = cookies;
+        document.getElementById('numGrandpas').innerHTML = grandpas + " Grandpas";
+        document.getElementById('costperGrandpa').innerHTML = "Next Grandpa Costs " + grandpaCost + " cookies";
+
+	}
 	var cookies = 0;
+    var grandpas = 0;
+    var grandpaCost = 10;
+    
+    function timer() {
+    	cookies = cookies + autoclick;
+        update()
+    }
+    setInterval(timer, 1)
 </script>
 <html>
   <head><title>Clicker Cookies</title></head>
   <body><center>
-    <p>This is made all in html since I haven't done anything in React in 5Ever</p>
-    <button type="button" onclick="add()">Mo Cookies!</button>
-	<br><br>
-	You Got:
+    <h1>This is made all in html since I haven't done anything in React in 5Ever</h1>
+    
+    Your Cookies:
 	<input type="text" id="yourcookies" disabled style= text-align:center>
-	
+    <br><br>
+    <button type="button" onclick="add()">Mo Cookies!</button>
+    <br>
+	<button onclick="moreGrandpas()">Need a Grandpa?</button>
+	<p id="numGrandpas"></p>
+    <p id="costperGrandpa"></p>
     <script>
 	function add() {
 		cookies = cookies + 1
-		document.getElementById('yourcookies').value = cookies;
-    	}
+		update()
+    }
+    function moreGrandpas() {
+    	if (cookies >= grandpaCost) {
+        	cookies -= grandpaCost;
+            grandpas++;
+            grandpaCost += grandpaCost;
+            update()
+        }
+    }
     </script>
     
 </center></body>
