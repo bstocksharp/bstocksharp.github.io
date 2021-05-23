@@ -1,36 +1,48 @@
 <script>
-function update() {
-		document.getElementById('yourcookies').value = cookies;
-        document.getElementById('numGrandpas').innerHTML = grandpas + " Grandpas";
-        document.getElementById('costperGrandpa').innerHTML = "Next Grandpa Costs " + grandpaCost + " cookies";
+    function update() {
+        document.getElementById('yourCookies').innerHTML = cookies + " Cookies";
+            document.getElementById('numGrandpas').innerHTML = grandpas + " Grandpas";
+            document.getElementById('costperGrandpa').innerHTML = "Next Grandpa Costs " + grandpaCost + " cookies";
 
-	}
-	var cookies = 0;
-    var grandpas = 0;
-    var grandpaCost = 10;
-    
-    function timer() {
-    	cookies = cookies + grandpas;
-        update()
-    }
-    setInterval(timer, 1000);
+        }
+        var cookies = 0;
+        var grandpas = 0;
+        var grandpaCost = 10;
+        var updateTimer = 1000;
+        
+        function timer() {
+            cookies = cookies + grandpas;
+            update()
+        }
+        setInterval(timer, updateTimer);
 </script>
 <html>
   <head>
 	  <link href="style.css" rel="stylesheet" type="text/css" />
 	  <title>Clicker Cookies</title>
+      <h1 class="centerText">This is made all in html since I haven't done anything in React in 5Ever</h1>
 	</head>
-  <body><center>
-    <h1>This is made all in html since I haven't done anything in React in 5Ever</h1>
-    
-    Your Cookies:
-	<input type="text" id="yourcookies" disabled style= text-align:center>
-    <br><br>
-    <button type="button" onclick="addCookie()">Mo Cookies!</button>
-    <br>
-	<button onclick="moreGrandpas()">Need a Grandpa?</button>
-	<p id="numGrandpas"></p>
-    <p id="costperGrandpa"></p>
+  <body>
+    <div class="row">
+        <div class="column">
+            <h1 class="centerText" id="yourCookies">0 Cookies</h1>
+            <br><br>
+            <img class="centerImage" src="macaron.png" alt="Macaron" onclick="addCookie()">
+            <br>
+        </div>
+
+        <div class="column">
+            <h2>DETAILS COLUMN</h2>
+            <p>Some text..</p>
+          </div>
+
+          <div class="column">
+            <button onclick="moreGrandpas()">Need a Grandpa?</button>
+	        <p id="numGrandpas"></p>
+            <p id="costperGrandpa"></p>
+          </div>
+        </div>
+	
     <script>
 	function addCookie() {
 		cookies = cookies + 1
@@ -45,6 +57,5 @@ function update() {
         }
     }
     </script>
-    
-</center></body>
+</body>
 </html>
