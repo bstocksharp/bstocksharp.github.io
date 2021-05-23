@@ -1,11 +1,18 @@
 <html>
   <head><title>Clicker Cookies</title></head>
   <body>
-    <p>This Is My All MAde through HTML since I haven't done anything in Reach in 5Ever</p>
-    <button type="button" onclick="add()">
-      Get Mo Cookies
-    </button>
-    
+    <p>This Is All Made through HTML since I haven't done anything in Reach in 5Ever</p>
+    <button type="button" onclick="add()">Mo Cookies!</button>
+	  <br><br>
+	  You Got:
+	  <input type="text" id="yourcookies" disabled style= text-align:center>
+	
+    <script>
+	  function add() {
+		  cookies = cookies + 1
+		  document.getElementById('yourcookies').value = cookies;
+    	}
+	</script>
     
   </body>
 </html>
