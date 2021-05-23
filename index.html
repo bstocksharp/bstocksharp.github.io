@@ -10,10 +10,10 @@ function update() {
     var grandpaCost = 10;
     
     function timer() {
-    	cookies = cookies + autoclick;
+    	cookies = cookies + grandpas;
         update()
     }
-    setInterval(timer, 1)
+    setInterval(timer, 1000);
 </script>
 <html>
   <head><title>Clicker Cookies</title></head>
@@ -23,13 +23,13 @@ function update() {
     Your Cookies:
 	<input type="text" id="yourcookies" disabled style= text-align:center>
     <br><br>
-    <button type="button" onclick="add()">Mo Cookies!</button>
+    <button type="button" onclick="addCookie()">Mo Cookies!</button>
     <br>
 	<button onclick="moreGrandpas()">Need a Grandpa?</button>
 	<p id="numGrandpas"></p>
     <p id="costperGrandpa"></p>
     <script>
-	function add() {
+	function addCookie() {
 		cookies = cookies + 1
 		update()
     }
