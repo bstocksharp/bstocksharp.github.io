@@ -1,17 +1,22 @@
 <script>
     function update() {
         document.getElementById('yourCookies').innerHTML = cookies + " Cookies";
-            document.getElementById('numGrandpas').innerHTML = grandpas + " Grandpas";
-            document.getElementById('costperGrandpa').innerHTML = "Next Grandpa Costs " + grandpaCost + " cookies";
+        document.getElementById('numGrandpas').innerHTML = grandpas + " Grandpas";
+        document.getElementById('costperGrandpa').innerHTML = "Next Grandpa Costs " + grandpaCost + " cookies";
+        document.getElementById('numFarms').innerHTML = farms + " Farms";
+        document.getElementById('costperFarm').innerHTML = "Next Farm Costs " + farmCost + " cookies";
 
         }
         var cookies = 0;
         var grandpas = 0;
         var grandpaCost = 10;
+        var farms = 0;
+        var farmCost = 100;
         var updateTimer = 1000;
         
         function timer() {
             cookies = cookies + grandpas;
+            cookies = cookies + farms;
             update()
         }
         setInterval(timer, updateTimer);
@@ -38,8 +43,12 @@
 
           <div class="column">
             <button onclick="moreGrandpas()">Need a Grandpa?</button>
-	        <p id="numGrandpas"></p>
-            <p id="costperGrandpa"></p>
+	          <p id="numGrandpas">0 Grandpas</p>
+            <p id="costperGrandpa">Next Grandpa Costs 10 Cookies</p>
+            <br><br>
+            <button onclick="moreFarms()">Grandpa Farm?</button>
+	          <p id="numFarms">0 Farms</p>
+            <p id="costperFarm">Next Farm costs 100 cookies</p>
           </div>
         </div>
 	
@@ -55,7 +64,15 @@
             grandpaCost += grandpaCost;
             update()
         }
-    }
+      }
+      function moreFarms() {
+    	if (cookies >= farmCost) {
+        	cookies -= farmCost;
+            farms++;
+            farmCost += farmCost;
+            update()
+        }
+      }
     </script>
 </body>
 </html>
