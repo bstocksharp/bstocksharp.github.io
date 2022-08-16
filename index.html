@@ -1,10 +1,10 @@
 <script>
     function update() {
-        document.getElementById('yourCookies').innerHTML = cookies + " Cookies";
+        document.getElementById('yourCookies').innerHTML = Math.round(cookies) + " Cookies";
         document.getElementById('numGrandpas').innerHTML = grandpas + " Grandpas";
-        document.getElementById('costperGrandpa').innerHTML = "Next Grandpa Costs " + grandpaCost + " cookies";
+        document.getElementById('costperGrandpa').innerHTML = "Next Grandpa Costs " + Math.round(grandpaCost) + " cookies";
         document.getElementById('numFarms').innerHTML = farms + " Farms";
-        document.getElementById('costperFarm').innerHTML = "Next Farm Costs " + farmCost + " cookies";
+        document.getElementById('costperFarm').innerHTML = "Next Farm Costs " + Math.round(farmCost) + " cookies";
 
         }
         var cookies = 0;
@@ -16,7 +16,7 @@
         
         function timer() {
             cookies = cookies + grandpas;
-            cookies = cookies + (farms * .5);
+            cookies = cookies + (farms * 1.5);
             update()
         }
         setInterval(timer, updateTimer);
