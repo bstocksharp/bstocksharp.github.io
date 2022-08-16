@@ -16,7 +16,7 @@
         
         function timer() {
             cookies = cookies + grandpas;
-            cookies = cookies + (farms * 1.5);
+            cookies = cookies + (farms * 2);
             update()
         }
         setInterval(timer, updateTimer);
@@ -62,7 +62,7 @@
     	if (cookies >= grandpaCost) {
         	cookies -= grandpaCost;
             grandpas++;
-            grandpaCost += (grandpaCost / .75);
+            grandpaCost += (grandpaCost / .10);
             update()
         }
       }
@@ -70,7 +70,7 @@
     	if (cookies >= farmCost) {
         	cookies -= farmCost;
             farms++;
-            farmCost += (farmCost / .75 );
+            farmCost += (farmCost / .15 );
             update()
         }
       }
